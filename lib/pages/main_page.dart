@@ -3,13 +3,14 @@ import 'package:get/get.dart';
 import '../controllers/team_controller.dart';
 import '../widgets/pokemon_list.dart';
 import 'team_preview_page.dart';
-import 'team_stats_page.dart'; 
-import 'tips_page.dart';       
+import 'team_stats_page.dart';
+import 'tips_page.dart';
+import 'team_history_page.dart';
 
 class MainPage extends StatelessWidget {
   MainPage({super.key});
 
-  final TeamController teamCtrl = Get.find<TeamController>(); 
+  final TeamController teamCtrl = Get.find<TeamController>();
   final TextEditingController _nameController = TextEditingController();
 
   void _openRenameDialog(BuildContext context) {
@@ -75,6 +76,7 @@ class MainPage extends StatelessWidget {
             ),
           ),
 
+          // ปุ่มหน้าใหม่: Team Stats + Tips & Guides
           Padding(
             padding: const EdgeInsets.fromLTRB(12, 6, 12, 6),
             child: Row(
@@ -98,6 +100,23 @@ class MainPage extends StatelessWidget {
             ),
           ),
 
+          // เพิ่มปุ่มประวัติทีมอีกแถว
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 0, 12, 6),
+            child: Row(
+              children: [
+                Expanded(
+                  child: ElevatedButton.icon(
+                    onPressed: () => Get.to(() => const TeamHistoryPage()),
+                    icon: const Icon(Icons.history),
+                    label: const Text('Team History'),
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          // ค้นหา + ตัวนับทีม
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12.0),
             child: Column(
@@ -125,7 +144,7 @@ class MainPage extends StatelessWidget {
           ),
           const SizedBox(height: 8),
 
-        
+          // รายการโปเกมอน
           Expanded(child: PokemonList()),
         ],
       ),

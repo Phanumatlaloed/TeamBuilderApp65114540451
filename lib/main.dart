@@ -3,11 +3,13 @@ import 'package:get/get.dart';
 import 'controllers/team_controller.dart';
 import 'pages/main_page.dart';
 import 'services/api_service.dart';
+import 'controllers/history_controller.dart';
 
 void main() {
   // ลงทะเบียน dependency ที่นี่ที่เดียว
   Get.lazyPut<ApiService>(() => ApiService(), fenix: true);
   Get.put(TeamController()); // ✅ ใส่ครั้งเดียวที่ main
+  Get.put(HistoryController());
 
   runApp(const MyApp());
 }
