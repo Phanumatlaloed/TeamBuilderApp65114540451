@@ -17,14 +17,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp( // ✅ ต้องเป็น GetMaterialApp
+    return GetMaterialApp( // ✅ ต้องใช้ GetMaterialApp เพื่อรองรับ GetX
       title: 'Pokémon Team Builder',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorSchemeSeed: Colors.amber,
-        useMaterial3: true,
+        useMaterial3: true, // ใช้ Material Design 3
       ),
-      home: MainPage(),
+      home: MainPage(), // หน้าแรกของแอป
     );
   }
 }
